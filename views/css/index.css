@@ -1,0 +1,59 @@
+/* header部分 */
+header {
+    position: relative;
+}
+header nav {
+    position: absolute;
+    width: 100%;
+}
+header nav img{
+    display: block;
+    float: left;
+    margin-top: 18px;
+}
+header nav ul {
+    float: right;
+}
+header nav ul li {
+    float: left;
+    width: 150px;
+}
+header nav ul li img {
+    display: block;
+    margin-top: 20px;
+}
+header nav ul li a {
+    color: #FFF;
+    height: 80px;
+    line-height: 80px;
+}
+header .banner > img {
+    display: block;
+    width: 100%;
+}
+header .banner-title {
+    position: absolute;
+    top: 80px;
+    left: 120px;
+}
+header .banner-title > img {
+    display: block;
+}
+/* learn 品茗 */
+main  {
+    background-color: #272789;
+}
+main .pm-cometo {
+    background-image: url(../img/bg_learn.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    overflow: hidden;
+}
+main .pm-cometo h1{
+    width: 120px;
+    line-height: 54px;
+    background-image: url(../img/icon/bg_title.png);
+    
+    text-align: center;
+    margin:120px  auto 60px;
+}
