@@ -112,8 +112,6 @@ main .job-panel > div {
     width: 80%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-
 }
 main .job-type-box {
     color: #FFF;
@@ -124,27 +122,13 @@ main .job-type-box {
     background-repeat: no-repeat;
     background-size: contain;
     text-align: center;
-    overflow: hidden;
+
 }
 main .job-type-box > p {
-    position: relative;
     padding: 0;
     font-size: 30px;
     font-weight: bold;
     letter-spacing: 13px;
     margin-top: 55px;
     margin-bottom: 10px;
-    padding-bottom: 14px;
-}
-main .job-type-box > p::after {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    content: '';
-    display: block;
-    width: 117px;
-    height: 3px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 40%, rgba(255, 255, 255, 0) 100%);
-    clear: both;
 }

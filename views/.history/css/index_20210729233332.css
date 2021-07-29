@@ -112,7 +112,7 @@ main .job-panel > div {
     width: 80%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
 main .job-type-box {
@@ -146,5 +146,5 @@ main .job-type-box > p::after {
     width: 117px;
     height: 3px;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 40%, rgba(255, 255, 255, 0) 100%);
-    clear: both;
+    border-bottom: 1px solid #FFF;
 }

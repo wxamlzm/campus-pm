@@ -146,5 +146,5 @@ main .job-type-box > p::after {
     width: 117px;
     height: 3px;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 40%, rgba(255, 255, 255, 0) 100%);
-    clear: both;
+    border-bottom: 1px solid #FFF;
 }
