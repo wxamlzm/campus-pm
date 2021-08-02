@@ -56,9 +56,19 @@ main section h1{
     width: 289px;
     line-height: 115px;
     background-image: url(../img/icon/bg_title.png);
-    
+    background-size: contain;
+
     text-align: center;
     margin:120px  auto 60px;
+
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 19px;
+    line-height: 115px;
+    text-align: center;
+    color: #272789;
+
+
 }
 main .pm-cometo p {
     color: #FFF;
@@ -122,18 +132,21 @@ main .job-panel > div {
     justify-content: space-between;
 
 }
-/* main .job-panel button {
+main .job-btn {
     display: block;
-    margin: 0 auto;
-    color: #FFF;
-    line-height: 70px;
-    font-size: 24px;
     width: 175px;
     height: 84px;
+    line-height: 70px;
+    text-align: center;
     background-image: url(../img/icon/bg_btn.png);
     background-repeat: no-repeat;
     background-size: contain;
-} */
+    font-size: 24px;
+    color: #FFF;
+    margin: 0 auto;
+    margin-top: 90px;
+
+}
 main .job-type-box {
     color: #FFF;
     width: 202px;
@@ -170,33 +183,70 @@ main .job-type-box > p::after {
 /* lc部分 */
 .pm-lc-box {
     display: flex;
+    justify-content: space-around;
 }
-.pm-lc-box > .pm-lc-item {
-    /* background-color: #FFF; */
-    width: 200px;
-    height: 250px;
-}
-.pm-lc-box > .pm-lc-item > .pm-lc-title >div {
-    font-size: 26px;
-    color: #49174d;
-    font-weight: 900;
-    line-height: 1.1;
+
+.pm-lc-box > .pm-lc-item > .pm-lc-title {
+    position: relative;
+    display: block;
     width: 85px;
     height: 85px;
-    background-color: #FFF;
+    margin: 0 auto;
     border-radius: 50%;
-    box-sizing: border-box;
     padding-top: 14px;
-    text-align: center;
-    /* 两行文字垂直居中的办法 */
-    margin: auto;
-    opacity: 0.5;
+    background-color: #FFF;
+    box-sizing: border-box;
 }
-.pm-lc-box > .pm-lc-item > .pm-lc-title {
+
+.pm-lc-box > .pm-lc-item > .pm-lc-title::before{
+    content: '';
+    position: absolute;
+    top: -17px;
+    right: -17px;
+    clear: both;
     width: 116px;
     height: 116px;
     border: 3px #FFF dotted;
-    display: flex;
     border-radius: 50%;
     opacity: 0.5;
 }
+
+.pm-lc-box > .pm-lc-item > .pm-lc-title p {
+    font-size: 26px;
+    line-height: 1.1;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #310044;
+    font-weight: bold;
+}
+.pm-lc-date {
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    width: 186px;
+    height: 111px;
+    padding-top: 25px;
+    margin-top: 33px;
+    box-sizing: border-box;
+}
+.pm-lc-date::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform:translateX(-50%);
+    content: '';
+    clear: both;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-top-color: #272789;
+    border-top-width: 12px;
+}
+.pm-lc-date p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFF;
+    text-align: center;
+    font-weight: bold;
+}
+/* 快问块答部分 */
