@@ -43,33 +43,6 @@ header .banner-title > img {
     display: block;
 }
 /* learn 品茗 */
-main  {
-    background-color: #272789;
-}
-main .pm-cometo {
-    background-image: url(../img/bg_learn.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    overflow: hidden;
-}
-main section h1{
-    width: 289px;
-    line-height: 115px;
-    background-image: url(../img/icon/bg_title.png);
-    background-size: contain;
-
-    text-align: center;
-    margin:120px  auto 60px;
-
-    font-size: 30px;
-    font-weight: bold;
-    letter-spacing: 19px;
-    line-height: 115px;
-    text-align: center;
-    color: #272789;
-
-
-}
 main .pm-cometo p {
     color: #FFF;
     text-indent: 2em;
@@ -180,10 +153,40 @@ main .job-type-box > p::after {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 40%, rgba(255, 255, 255, 0) 100%);
     clear: both;
 }
-/* lc部分 */
-.pm-lc-box {
+/* process部分 */
+.pm-process {
+    position: relative;
+}
+.pm-process::before {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    display: block;
+    width: 1111px;
+    height: 1px;
+    background-color: #FFF;
+}
+.pm-lc-box{
     display: flex;
     justify-content: space-around;
+    position: relative;
+}
+.pm-lc-box::before,.pm-lc-box::after {
+    position: absolute;
+    left: -56px;
+    top:22px;
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #FFF;
+}
+.pm-lc-box::after {
+    left: initial;
+    right: -56px;
 }
 
 .pm-lc-box > .pm-lc-item > .pm-lc-title {
@@ -248,5 +251,11 @@ main .job-type-box > p::after {
     color: #FFF;
     text-align: center;
     font-weight: bold;
+}
+.pm-lc-box > :nth-child(even) > .pm-lc-title {
+    background-image: linear-gradient(0deg, #b17fdf 1%, #6c41ef 100%);
+}
+.pm-lc-box > :nth-child(even) > .pm-lc-title > p {
+    color: #FFF;
 }
 /* 快问块答部分 */

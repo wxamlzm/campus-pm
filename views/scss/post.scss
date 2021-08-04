@@ -1,0 +1,27 @@
+header{
+   img{
+    display: block;
+   }
+}
+
+.post-box {
+  .post-list {
+    .post-item {
+      width: 80%;
+      height: 150px;
+      margin: 0 auto;
+      background-color: #5252a1;
+      padding: 20px;
+      box-sizing: border-box;
+      .post-title {
+        line-height: 30px;
+      }
+      .post-detail {
+        line-height: 20px;
+      }
+      .post-location {
+        line-height: 15px;
+      }
+    }
+  }
+}
