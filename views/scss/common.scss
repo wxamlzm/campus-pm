@@ -21,3 +21,33 @@ main  {
     overflow: hidden;
   }
 }
+
+header {
+  position: relative;
+  nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    img {
+      display: block;
+      float: left;
+      margin-top: 18px;
+    }
+    ul {
+      float: right;
+      li {
+        float: left;
+        width: 150px;
+        img {
+          display: block;
+          margin-top: 20px;
+        }
+        a {
+          color: #FFF;
+          height: 80px;
+          line-height: 80px;
+        }
+      }
+    }
+  }
+}

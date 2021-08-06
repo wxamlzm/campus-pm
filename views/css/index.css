@@ -2,34 +2,6 @@
 body {
     background-color: #272789;
 }
-header {
-    position: relative;
-}
-header nav {
-    position: absolute;
-    width: 100%;
-}
-header nav img{
-    display: block;
-    float: left;
-    margin-top: 18px;
-}
-header nav ul {
-    float: right;
-}
-header nav ul li {
-    float: left;
-    width: 150px;
-}
-header nav ul li img {
-    display: block;
-    margin-top: 20px;
-}
-header nav ul li a {
-    color: #FFF;
-    height: 80px;
-    line-height: 80px;
-}
 header .banner > img {
     display: block;
     width: 100%;

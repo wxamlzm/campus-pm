@@ -1,26 +1,44 @@
 header{
    img{
     display: block;
+    width: 100%;
    }
 }
 
 .post-box {
   .post-list {
+    .post-total {
+      width: 80%;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+      margin: 0 auto 16px;
+      color: #FFF;
+    }
     .post-item {
       width: 80%;
-      height: 150px;
       margin: 0 auto;
       background-color: #5252a1;
       padding: 20px;
       box-sizing: border-box;
+      border-radius: 20px;
       .post-title {
-        line-height: 30px;
+        font-size: 20px;
+        line-height: 28px;
+        a {
+          color: #ffc774;
+        }
       }
       .post-detail {
-        line-height: 20px;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 8px 0 16px;
+        color: #ffc774;
       }
       .post-location {
-        line-height: 15px;
+        font-size: 14px;
+        line-height: 22px;
+        color: #ffc774
       }
     }
   }
