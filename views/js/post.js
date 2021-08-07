@@ -1,22 +1,17 @@
 // 1.创建ajax函数，以便于可以向后台请求数据
 var ajax = () => {
-    return new Promise( (resolve,reject) =>{
-        let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = () => {
-            if(4 == xhr.readyState){
-                let result = JSON.parse(xhr.responseText);
-                // test
-                console.log(result);
-            }
-            resolve(result.data);
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if(4 == xhr.readyState){
+            let result = JSON.parse(xhr.responseText);
+            // test
+            console.log(result);
         }
-    
-        xhr.open('GET', '/users/post', true);
-        xhr.send();
-    })
+    }
 
+    xhr.open('GET', '/users/post', true);
+    xhr.send();
 }
-ajax().then(console.log(data));
 
 // 当窗口加载完成后，自动从后台获取数据库数据，并生成岗位列表
 // 1.获取触发的元素对象
