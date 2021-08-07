@@ -1,5 +1,6 @@
 main {
-  background-color: #272789; }
+  background-color: #272789;
+  min-width: 1000px; }
   main h1 {
     width: 289px;
     line-height: 115px;
@@ -20,7 +21,8 @@ main {
     overflow: hidden; }
 
 header {
-  position: relative; }
+  position: relative;
+  min-width: 1000px; }
   header nav {
     position: absolute;
     top: 0;

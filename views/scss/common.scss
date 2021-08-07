@@ -1,5 +1,6 @@
 main  {
   background-color: #272789;
+  min-width: 1000px;
   h1 {
     width: 289px;
     line-height: 115px;
@@ -24,6 +25,7 @@ main  {
 
 header {
   position: relative;
+  min-width: 1000px;
   nav {
     position: absolute;
     top: 0;
