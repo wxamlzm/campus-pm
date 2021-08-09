@@ -11,7 +11,7 @@ header img {
   color: #FFF; }
 .post-box .post-list .post-item {
   width: 80%;
-  margin: 0 auto;
+  margin: 50px auto 0;
   background-color: #5252a1;
   padding: 20px;
   box-sizing: border-box;
@@ -21,7 +21,7 @@ header img {
     line-height: 28px; }
     .post-box .post-list .post-item .post-title a {
       color: #ffc774; }
-  .post-box .post-list .post-item .post-detail {
+  .post-box .post-list .post-item .post-type {
     font-size: 16px;
     line-height: 24px;
     margin: 8px 0 16px;

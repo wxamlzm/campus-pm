@@ -5,7 +5,6 @@ const path = require('path');
 // 引入用户路由器
 const userRouter = require('./routes/users.js');
 // 
-
 // 创建web服务器
 const app = express();
 app.listen(8080, () => {
