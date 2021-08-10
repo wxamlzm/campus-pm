@@ -23,12 +23,17 @@
     .login-title {
       box-sizing: border-box;
       padding: 20px;
+      text-align: center;
       a {
+        float: left;
         display: block;
-        width: 130px;
+        width: 109px;
         color: #000;
         font-size: 18px;
         border-right: 1px solid #000;
+      }
+      a:last-child {
+        border: none;
       }
     }
     .login-input {
