@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div">
+
+  </div>
+</body>
+<script>
+    var input1 = document.createElement('input');
+    var input2 = document.createElement('input');
+    input1.setAttribute('placeholder','请输入手机号/邮箱/用户名');
+    input1.setAttribute('type', 'text');
+    input2.setAttribute('placeholder', '请输入密码');
+    input2.setAttribute('type', 'password');
+    
+    var frag = document.createDocumentFragment();
+
+    frag.appendChild(input1);
+    frag.appendChild(input2);
+
+    var div = document.getElementById('div');
+    div.appendChild(frag);
+    console.log(frag);
+</script>
+</html>
