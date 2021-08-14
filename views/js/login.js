@@ -87,8 +87,11 @@ divTabBox.onclick = e => {
     }else if (aPhone == e.target){
       // 当点击的是phone的时候
       divInput.innerHTML = `
-        <input type="text" data-type='phone' placeholder="请输入手机号">
-        <input type="text" data-type='code' placeholder="请输入验证码">
+        <input type="number" data-type='phone' placeholder="请输入手机号">
+        <div>
+          <input type="text" data-type='code' placeholder="请输入验证码">
+          <a href="javascript:;" data-type='getCode'>获取验证码</a>
+        </div>
       ` 
       // 同时设置data-btnModel= 'phone'
       aLogin.dataset.model = 'code';
@@ -123,14 +126,24 @@ aLogin.onclick = function(){
       },
     }
     ajax(objAjax);
-  }else{
-    let inputPhone = document.querySelector('[data-type=phone]');
-    let inputCode = document.querySelector('[data-type=code]');
+  }else if('code' == model){
+    var objAjax = {
+      data: {
+        uname: document.querySelector('[data-type=phone]').value,
+        model: `${model}`,
+      },
+      type: 'POST',
+      success: function(result){
+        // 对后台返回的状态码进行判断
+        // 如果是确认有该手机，这边对验证码进行验证
+        console.log(result);
+      },
+    }
     ajax();
   }
 }
 /*
-DATE:2021/08/14;
+DATE: 2021/08/14;
 AUTHOR:ZD;
 EFFECT:在按enter的时候模拟触发onclick功能
 */
@@ -142,5 +155,17 @@ for (let input of inputs){
     }
   }
 }
+/*
+DATE: 2021/08/14;
+AUTHOR: ZD
+EFFECT: 当点击data-type : getCode 标签的时候触发向datatype:phone中的手机号发送短信验证码的功能
+*/
+// var aGetCode = document.querySelector('[data-type="getCode"]');
+// aGetCode.onclick = function(){
+//   console.log('获取验证码 ');
+// }
+
+
+
 // this视频再看一遍
 // arr的6个新函数
