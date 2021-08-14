@@ -1,13 +1,30 @@
-// 数据传输需求：
-// 将前端用户输入的两个input里的值获取
-// 如果用户选择的是密码登录，则向服务器发送请求从数据库匹配用户名密码是否符合
-// 如果用户选择的是短信验证码登录，我也不知道怎么做，先发送post请求到服务器路由，然后console一下吧
-// 2.判断由触发事件绑定函数中的
-var ajax = function(){
-  // 1.创建XHLHttpRequest
+/*
+DATE: 2021/08/14;
+AUTHOR: ZD;
+EFFECT: 辅助ajax解析对象；数组参数；将传入的对象，或关联数组打散，拼接成符合要求的url,只适用'GET'类方式
+*/
+var jsonToStr = function(dataJson){
+  var arr = [];
+  for(var key in dataJson){
+    arr.push(`${key}=${dataJson[key]}`)
+  }
+  var strUrlParams = arr.join('&');
+  return strUrlParams;
+}
+/*
+DATE: 2021/08/14;
+AUTHOR: ZD;
+EFFECT: AJAX传输功能;
+PARAMS: objAjax{
+  data{para1:val,para2:val}, 对象中放入需要传入后台的参数
+  type:'method', 选择HTTP请求方法
+  success(),  回调函数，在成功的时候指定执行
+  error(),    回调函数，在异常的时候指定执行
+}
+*/
+var ajax = function(objAjax){
   var xhr = new XMLHttpRequest;
 
-  // 4.添加传输过程中的事件监听
   xhr.onreadystatechange = function(){
     // 由于监听的过程会包括从open()开始的各环节，因此需要在请求创建前就设置a
     if(4 == xhr.readyState){
@@ -15,74 +32,115 @@ var ajax = function(){
         let result = JSON.parse(xhr.responseText);
         // 服务器状态码返回正常
         // 判断，并执行对应的业务逻辑
+        objAjax.success(result);
       }else{
         // 服务器状态码返回错误
         // 执行对应的报错操作
       }
     }
   }
-  // 2.创建http请求，设置请求的形式，路径，同步异步
-  xhr.open('');
-  // 3.设置请求头
-  xhr.setRequestHeader('');
-  // 3.将需要post到后端的数据，作为实参传入send()方法中
-  xhr.send('');
+  // 将objAjax中的data属性解析为我们需要传入的参数格式
+  var strUrlParams = jsonToStr(objAjax.data);
+  // 以objAjax中的type属性的值来判断参数的处理方式，进行拼接并发送请求
+  if('GET' == objAjax.type){
+    // GET方式
+    xhr.open('GET', `/users/login?${strUrlParams}`, true);
+    xhr.send();
+  }else if ('POST' == objAjax.type){
+    // POST方式
+    xhr.open('POST', `/users/login`, true);
+    xhr.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=utf-8');
+    xhr.send(strUrlParams);
+  }//待完善
 }
-
-// 交互效果需求，
-// 需要在login-title触发点击事件的时候，切换面板
-// 其中login-input中的input分别为
-// 1.
-// <input type="text" data-id='byPwd' placeholder="请输入手机号/邮箱/用户名">
-// <input type="password" data-id='byPwd' placeholder="请输入密码"></input>
-// 2.
-// <input type="text" data-id='byMsg' placeholder="请输入手机号">
-// <input type="text" data-id='byMsg' placeholder="请输入验证码">
-
-
+/*
+DATE: 2021/08/14;
+AUTHOR: ZD;
+EFFECT: 需要在login-title触发点击事件的时候，切换面板
+*/
 var divTabBox = document.querySelector('[data-tabBox]');
-// 当title的a标签被点击的时候，绑定以下事件处理函数
 divTabBox.onclick = e => {
-  var aPwd = divTabBox.querySelector(':first-child');
-  var aPhone = divTabBox.querySelector(':last-child');
-  var divInput = document.querySelector('.login-input');
-  var aLogin = document.querySelector('.login-btn>[data-model]')
+  let aPwd = divTabBox.querySelector(':first-child');
+  let aPhone = divTabBox.querySelector(':last-child');
+  let divInput = document.querySelector('.login-input');
+  let aLogin = document.querySelector('.login-btn>[data-model]')
 
-  // 如果点击的是A
-  var tabs = document.querySelectorAll('[data-tab]');
+  // 判断点击区域
+  let tabs = document.querySelectorAll('[data-tab]');
   if ('A' === e.target.nodeName){
     // 设置样式
     for (let tab of tabs){
       tab.dataset.status = false;
     }
-
     e.target.dataset.status = true;
 
     // 根据点击情况更换面板
     // 1.innerHTML方法
-    if ( aPwd == e.target){
+    if (aPwd == e.target){
       // 当点击的是pwd的时候
       divInput.innerHTML = `
-        <input type="text" data-id='byPwd' placeholder="请输入手机号/邮箱/用户名">
-        <input type="password" data-id='byPwd' placeholder="请输入密码"></input>
+        <input type="text" data-type='txt' placeholder="请输入手机号/邮箱/用户名">
+        <input type="password" data-type='pwd' placeholder="请输入密码"></input>
       `;
       // 同时设置data-model= 'pwd'
       aLogin.dataset.model = 'pwd';
     }else if (aPhone == e.target){
       // 当点击的是phone的时候
       divInput.innerHTML = `
-        <input type="text" data-id='byMsg' placeholder="请输入手机号">
-        <input type="text" data-id='byMsg' placeholder="请输入验证码">
+        <input type="text" data-type='phone' placeholder="请输入手机号">
+        <input type="text" data-type='code' placeholder="请输入验证码">
       ` 
       // 同时设置data-btnModel= 'phone'
-      aLogin.dataset.model = 'phone';
+      aLogin.dataset.model = 'code';
     }
   }
 }
-
-// 获取
-var btnLogin = document.getElementById('[data-btn]');
+/*
+DATE:2021/08/14;
+AUTHOR:ZD;
+EFFECT:获取页面上data-model为pwd和code模式的数据传输，及数据传递后的业务处理
+*/
+var aLogin = document.querySelector('[data-btn]');
 // 当登录按钮被点击的时候，绑定以下事件处理函数
-btnLogin.onclick = function(){
-  // 先判断目前的模式是哪一种
+aLogin.onclick = function(){
+  // 获取目前用户键入的数据，并判断是否符合正规的用户名和密码要求
+
+  // 判断目前的模式是哪一种
+  let model = this.dataset.model
+  if ('pwd' == model){
+    var objAjax = {
+      data: {
+        uname: document.querySelector('[data-type=txt]').value,
+        upwd: document.querySelector('[data-type=pwd]').value,
+        model: `${model}`,
+      },
+      type: 'POST',
+      success: function(result){
+        // 对后台返回的状态码进行判断
+        // 如果是登录成功，那就执行页面跳转
+        // 如果是登录失败，那就给与提示，要求重新输入
+        console.log(result);
+      },
+    }
+    ajax(objAjax);
+  }else{
+    let inputPhone = document.querySelector('[data-type=phone]');
+    let inputCode = document.querySelector('[data-type=code]');
+    ajax();
+  }
 }
+/*
+DATE:2021/08/14;
+AUTHOR:ZD;
+EFFECT:在按enter的时候模拟触发onclick功能
+*/
+var inputs = document.querySelectorAll('[data-type]');
+for (let input of inputs){
+  input.onkeyup = function(e){
+    if(13 == e.keyCode){
+      aLogin.onclick();
+    }
+  }
+}
+// this视频再看一遍
+// arr的6个新函数

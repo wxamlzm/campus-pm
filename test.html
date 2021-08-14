@@ -11,21 +11,17 @@
 
   </div>
 </body>
-<script>
-    var input1 = document.createElement('input');
-    var input2 = document.createElement('input');
-    input1.setAttribute('placeholder','请输入手机号/邮箱/用户名');
-    input1.setAttribute('type', 'text');
-    input2.setAttribute('placeholder', '请输入密码');
-    input2.setAttribute('type', 'password');
-    
-    var frag = document.createDocumentFragment();
+<script>  
+  var model = 'pwd';
 
-    frag.appendChild(input1);
-    frag.appendChild(input2);
+  var objAjax = {
+    data:{
+      uname: 1,
+      upwd: 2,
+      model: model
+    }
+  }
 
-    var div = document.getElementById('div');
-    div.appendChild(frag);
-    console.log(frag);
+  console.log(objAjax);
 </script>
 </html>
