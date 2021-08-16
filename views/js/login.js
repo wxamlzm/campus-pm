@@ -87,7 +87,7 @@ divTabBox.onclick = e => {
     }else if (aPhone == e.target){
       // 当点击的是phone的时候
       divInput.innerHTML = `
-        <input type="number" data-type='phone' placeholder="请输入手机号">
+        <input type="text" data-type='phone' placeholder="请输入手机号" oninput='checkNum'>
         <div>
           <input type="text" data-type='code' placeholder="请输入验证码">
           <a href="javascript:;" data-type='getCode'>获取验证码</a>
@@ -156,15 +156,23 @@ for (let input of inputs){
   }
 }
 /*
-DATE: 2021/08/14;
-AUTHOR: ZD
-EFFECT: 当点击data-type : getCode 标签的时候触发向datatype:phone中的手机号发送短信验证码的功能
+DATE: 2021/08/16;
+AUTHOR: ZD;
+EFFECT: 文本框内只能输入数字
 */
-// var aGetCode = document.querySelector('[data-type="getCode"]');
-// aGetCode.onclick = function(){
-//   console.log('获取验证码 ');
-// }
-
+var checkNum = function(){
+  // 每输入一个字符，就用正则判断是不是都是数字（\d+）
+  var reg = /\d+/;
+  var result = reg.test(e.data);
+  
+  // 如果不是，就slice，截取从开头到倒数第一个字符的字符串
+  if(false == result){
+    this.value = this.value.slice(0,-1);
+  }
+  
+  // // 放入文本框内容中
+  this.value = this.value;
+}
 
 
 // this视频再看一遍

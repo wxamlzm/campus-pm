@@ -8,10 +8,28 @@
 </head>
 <body>
   <div id="div">
-    <a href="javascript:;">测试</a>
+    这里只能输入数字<input type='text' id="input" oninput='checkNum()'>
   </div>
 </body>
 <script>  
+
+var input = document.getElementById('input');
+var checkNum = function(e){
+  console.log(e);
+  // 每输入一个字符，就用正则判断是不是都是数字（\d+）
+  var reg = /\d+/;
+  var result = reg.test(e.data);
+  
+  // 如果不是，就slice，截取从开头到倒数第一个字符的字符串
+  if(false == result){
+    this.value = this.value.slice(0,-1);
+  }
+  
+  // // 放入文本框内容中
+  this.value = this.value;
+}
+// 绑定事件触发处理函数
+// input.oninput = checkNum;
 
 
 </script>
