@@ -62,7 +62,10 @@ router.post('/login', (req,res,next)=>{
             res.send(json);
         });
     }else if('code' == reqObj.model){
-        console.log('我这里是code');
+        // 让手机号和数据库中进行匹配，返回结果
+        console.log(reqObj.phone);
+        // strSql = `SELECT*FROM user_info WHERE u_phone=?`;
+        // pool.query(strSql,[reqObj.phone]);
     }
 
     // 通过sql语句的指定查询

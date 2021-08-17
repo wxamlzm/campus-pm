@@ -1,9 +1,19 @@
 /*
+DATE:2021/08/15;
+AUTHOR:ZD;
+EFFECT:校验传入的是否是正规的手机号码，返回布尔值
+*/
+var isPhoneNumber = phone => {
+  var reg = /^1[3-9]\d{9}$/;
+  var res = reg.test(phone);
+  return res;
+}
+/*
 DATE: 2021/08/14;
 AUTHOR: ZD;
 EFFECT: 辅助ajax解析对象；数组参数；将传入的对象，或关联数组打散，拼接成符合要求的url,只适用'GET'类方式
 */
-var jsonToStr = function(dataJson){
+var jsonToStr = dataJson => {
   var arr = [];
   for(var key in dataJson){
     arr.push(`${key}=${dataJson[key]}`)
@@ -22,7 +32,7 @@ PARAMS: objAjax{
   error(),    回调函数，在异常的时候指定执行
 }
 */
-var ajax = function(objAjax){
+var ajax = objAjax => {
   var xhr = new XMLHttpRequest;
 
   xhr.onreadystatechange = function(){
@@ -59,7 +69,7 @@ AUTHOR: ZD;
 EFFECT: 需要在login-title触发点击事件的时候，切换面板
 */
 var divTabBox = document.querySelector('[data-tabBox]');
-divTabBox.onclick = e => {
+divTabBox.onclick = function(e){
   let aPwd = divTabBox.querySelector(':first-child');
   let aPhone = divTabBox.querySelector(':last-child');
   let divInput = document.querySelector('.login-input');
@@ -132,7 +142,7 @@ aLogin.onclick = function(){
 
     var objAjax = {
       data: {
-        uname: document.querySelector('[data-type=phone]').value,
+        phone: document.querySelector('[data-type=phone]').value,
         model: `${model}`,
       },
       type: 'POST',
@@ -143,7 +153,14 @@ aLogin.onclick = function(){
       },
     }
 
-    ajax();
+    // 先校验电话号码是否合法
+    var isPhone = isPhoneNumber(objAjax.data.phone);
+    if(true == isPhone){
+      ajax(objAjax);
+    }else{
+      // 测试占位
+      console.log('请输入正确的手机号');
+    }
   }
 }
 /*
@@ -170,16 +187,16 @@ divInput.oninput = function(e){
   if('phone' == e.target.dataset.type ||
      'code' == e.target.dataset.type){
     // 每输入一个字符，就用正则判断是不是都是数字（\d+）
-    var reg = /\d+/;
-    var result = reg.test(e.data);
-    
+    var reg = /^\d+$/;
+    var phone = e.target.value;
+    var result = reg.test(phone);
     // 如果不是，就slice，截取从开头到倒数第一个字符的字符串
     if(false == result){
-      e.target.value = e.target.value.slice(0,-1);
+      phone = e.target.value.slice(0,-1);
     }
     
     // // 放入文本框内容中
-    e.target.value = e.target.value;
+    e.target.value = phone;
   }
 }
 
