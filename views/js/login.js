@@ -87,7 +87,7 @@ divTabBox.onclick = e => {
     }else if (aPhone == e.target){
       // 当点击的是phone的时候
       divInput.innerHTML = `
-        <input type="text" data-type='phone' placeholder="请输入手机号" oninput='checkNum'>
+        <input type="text" data-type='phone' placeholder="请输入手机号">
         <div>
           <input type="text" data-type='code' placeholder="请输入验证码">
           <a href="javascript:;" data-type='getCode'>获取验证码</a>
@@ -111,6 +111,7 @@ aLogin.onclick = function(){
   // 判断目前的模式是哪一种
   let model = this.dataset.model
   if ('pwd' == model){
+
     var objAjax = {
       data: {
         uname: document.querySelector('[data-type=txt]').value,
@@ -125,8 +126,10 @@ aLogin.onclick = function(){
         console.log(result);
       },
     }
+    
     ajax(objAjax);
   }else if('code' == model){
+
     var objAjax = {
       data: {
         uname: document.querySelector('[data-type=phone]').value,
@@ -139,6 +142,7 @@ aLogin.onclick = function(){
         console.log(result);
       },
     }
+
     ajax();
   }
 }
@@ -160,18 +164,23 @@ DATE: 2021/08/16;
 AUTHOR: ZD;
 EFFECT: 文本框内只能输入数字
 */
-var checkNum = function(){
-  // 每输入一个字符，就用正则判断是不是都是数字（\d+）
-  var reg = /\d+/;
-  var result = reg.test(e.data);
-  
-  // 如果不是，就slice，截取从开头到倒数第一个字符的字符串
-  if(false == result){
-    this.value = this.value.slice(0,-1);
+var divInput = document.querySelector('.login-input');
+divInput.oninput = function(e){
+  // 判断e.target是否是phone
+  if('phone' == e.target.dataset.type ||
+     'code' == e.target.dataset.type){
+    // 每输入一个字符，就用正则判断是不是都是数字（\d+）
+    var reg = /\d+/;
+    var result = reg.test(e.data);
+    
+    // 如果不是，就slice，截取从开头到倒数第一个字符的字符串
+    if(false == result){
+      e.target.value = e.target.value.slice(0,-1);
+    }
+    
+    // // 放入文本框内容中
+    e.target.value = e.target.value;
   }
-  
-  // // 放入文本框内容中
-  this.value = this.value;
 }
 
 
