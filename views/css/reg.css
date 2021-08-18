@@ -40,6 +40,8 @@
       .container .reg-box .right .reg-title {
         font-size: 20px;
         text-align: center; }
+        .container .reg-box .right .reg-title h2 {
+          font-weight: 400; }
       .container .reg-box .right .reg-input input[data-input] {
         width: 100%;
         height: 40px;

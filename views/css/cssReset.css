@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+*::selection{
+    background-color: transparent;
+}
 ul, ol {
     list-style: none;
 }
