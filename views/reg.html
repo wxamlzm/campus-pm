@@ -4,18 +4,46 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/cssReset.css">
+  <link rel="stylesheet" href="./css/reg.css">
   <title>注册界面</title>
 </head>
 <body>
   <div class="container">
-    <div class="regBox">
-      <!-- <div class="left"></div> -->
+    <header>
+      <img src="./img/logo.png" alt="">
+    </header>
+    <div class="reg-box clearfix">
+      <!-- 左边展示栏 -->
+      <ul class="left">
+        <li class="left-item clearfix">
+          <h6>正规公司</h6>
+          <p>科创版认证上市公司</p>
+        </li>
+        <li class="left-item clearfix">
+          <h6>正规公司</h6>
+          <p>科创版认证上市公司</p>
+        </li>
+        <li class="left-item clearfix">
+          <h6>正规公司</h6>
+          <p>科创版认证上市公司</p>
+        </li>
+      </ul>
+      <!-- 右边功能栏 -->
       <div class="right">
-        <div class="regTitle"></div>
-        <div class="regInput"></div>
-        <div class="regBtn"></div>
-        <div class="regCheck"></div>
-        <div class="regFoot"></div>
+        <div class="reg-title">
+          登录/注册
+        </div>
+        <div class="reg-input">
+          <input type="text" placeholder="手机号码" data-input>
+          <input type="text" placeholder="短信验证码" data-input>
+          <input type="checkbox" class="check" id="check">
+          <label for="check">我已阅读并同意 用户协议 和 隐私条款</label>
+        </div>
+        <div class="reg-btn">
+          <a href="javascript:;">登录/注册</a>
+        </div>
+        <div class="reg-foot">忘记密码？</div>
       </div>
     </div>
   </div>  

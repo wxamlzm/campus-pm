@@ -1,3 +1,67 @@
-
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: whitesmoke; }
+  .container .reg-box {
+    width: 800px;
+    min-width: 800px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: white; }
+    .container .reg-box .left {
+      float: left;
+      width: 35%;
+      padding: 20px 50px;
+      box-sizing: border-box;
+      color: #888; }
+      .container .reg-box .left .left-item {
+        box-sizing: border-box;
+        margin-bottom: 80px; }
+        .container .reg-box .left .left-item:first-child {
+          margin-top: 80px; }
+        .container .reg-box .left .left-item i {
+          float: left;
+          width: 49px;
+          height: 49px; }
+        .container .reg-box .left .left-item h6 {
+          margin-left: 32px;
+          font-size: 14px; }
+        .container .reg-box .left .left-item p {
+          margin-left: 32px;
+          font-size: 12px; }
+    .container .reg-box .right {
+      float: right;
+      width: 65%;
+      padding: 60px;
+      box-sizing: border-box; }
+      .container .reg-box .right > div {
+        margin-bottom: 30px; }
+      .container .reg-box .right .reg-title {
+        font-size: 20px;
+        text-align: center; }
+      .container .reg-box .right .reg-input input[data-input] {
+        width: 100%;
+        height: 40px;
+        background-color: whitesmoke;
+        padding-left: 10px;
+        border-radius: 10px;
+        margin-bottom: 15px; }
+      .container .reg-box .right .reg-input .check {
+        vertical-align: middle; }
+      .container .reg-box .right .reg-input label {
+        font-size: 12px;
+        vertical-align: middle; }
+      .container .reg-box .right .reg-btn {
+        text-align: center; }
+        .container .reg-box .right .reg-btn a {
+          display: block;
+          height: 45px;
+          line-height: 45px;
+          border-radius: 10px;
+          background-color: #ea5800;
+          margin: 0 auto; }
+      .container .reg-box .right .reg-foot {
+        text-align: right; }
 
 /*# sourceMappingURL=reg.css.map */

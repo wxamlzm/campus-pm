@@ -1,0 +1,85 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: rgb(245,245,245);
+  .reg-box{
+    width: 800px;
+    min-width: 800px;
+    margin: auto;
+    border-radius: 20px;
+    // 测试
+    background-color: white;
+    .left{
+      float: left;
+      width: 35%;
+      padding: 20px 50px;
+      box-sizing: border-box;
+      color: #888;
+      .left-item{
+        box-sizing: border-box;
+        margin-bottom: 80px;
+        &:first-child{
+          margin-top: 80px;
+        }
+        i {
+          float: left;
+          width: 49px;
+          height: 49px;
+        }
+        h6 {
+          margin-left: 32px;
+          font-size: 14px;
+        }
+        p {
+          margin-left: 32px;
+          font-size: 12px;
+        }
+      }
+    }
+    .right {
+      float: right;
+      width: 65%;
+      padding: 60px;
+      box-sizing: border-box;
+      & > div {
+        margin-bottom: 30px;
+      }
+      .reg-title{
+        font-size: 20px;
+        text-align: center;
+      }
+      .reg-input{
+        input[data-input]{
+          width: 100%;
+          height: 40px;
+          background-color: rgb(245,245,245);
+          padding-left: 10px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        }
+        .check {
+          vertical-align:middle
+        }
+        label {
+          font-size: 12px;
+          vertical-align:middle
+        }
+      }
+      .reg-btn{
+        text-align: center;
+        a {
+          display: block;
+          height: 45px;
+          line-height: 45px;
+          border-radius: 10px;
+          background-color: #ea5800;
+          margin: 0 auto;
+        }
+      }
+      .reg-foot{
+        text-align: right;
+      }
+    }
+  }
+}
