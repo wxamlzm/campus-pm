@@ -1,6 +1,9 @@
 main  {
   background-color: #272789;
   min-width: 1000px;
+  background-image: url(../img/bg_learn.png);
+  background-repeat: no-repeat;
+  background-size: contain;
   h1 {
     width: 289px;
     line-height: 115px;
@@ -16,9 +19,6 @@ main  {
     color: #272789;
   }
   section:first-child {
-    background-image: url(../img/bg_learn.png);
-    background-repeat: no-repeat;
-    background-size: contain;
     overflow: hidden;
   }
 }
