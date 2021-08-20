@@ -139,7 +139,6 @@ aLogin.onclick = function(){
         }else if('200' == code){
           // 无法后退到
           location.replace('/index.html');
-          
         }
       },
     }
@@ -155,8 +154,15 @@ aLogin.onclick = function(){
       type: 'POST',
       success: function(result){
         // 对后台返回的状态码进行判断
-        // 如果是确认有该手机，这边对验证码进行验证
-        console.log(result);
+        // 如果是登录成功，那就执行页面跳转
+        var code = result.code;
+        // 如果是登录失败，那就给与提示，要求重新输入
+        if('201' == code){
+          alert('用户名或密码错误')
+        }else if('200' == code){
+          // 无法后退到
+          location.replace('/index.html');
+        }
       },
     }
 
@@ -195,15 +201,15 @@ divInput.oninput = function(e){
      'code' == e.target.dataset.type){
     // 每输入一个字符，就用正则判断是不是都是数字（\d+）
     var reg = /^\d+$/;
-    var phone = e.target.value;
-    var result = reg.test(phone);
+    var num = e.target.value;
+    var result = reg.test(num);
     // 如果不是，就slice，截取从开头到倒数第一个字符的字符串
     if(false == result){
-      phone = e.target.value.slice(0,-1);
+      num = e.target.value.slice(0,-1);
     }
     
     // // 放入文本框内容中
-    e.target.value = phone;
+    e.target.value = num;
   }
 }
 

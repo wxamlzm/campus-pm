@@ -35,17 +35,21 @@
           <h2>用户注册</h2>
         </div>
         <div class="reg-input">
-          <input type="text" placeholder="手机号码" data-input>
+          <input type="text" placeholder="手机号码" data-input='phone'>
+          <span data-msg='phone'></span>
           <input type="text" placeholder="短信验证码" data-input>
+          <span data-msg='code'></span>
           <input type="checkbox" class="check" id="check">
           <label for="check">我已阅读并同意 用户协议 和 隐私条款</label>
+          <span data-msg='rule'></span>
         </div>
         <div class="reg-btn">
-          <a href="javascript:;">立刻注册</a>
+          <a href="javascript:;" data-reg>立刻注册</a>
         </div>
         <div class="reg-foot"><a href="/login">立刻登录</a></div>
       </div>
     </div>
   </div>  
 </body>
+<script src="./js/reg.js"></script>
 </html>

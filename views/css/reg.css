@@ -38,13 +38,12 @@
     .container .reg-box .right {
       float: right;
       width: 65%;
-      padding: 60px 80px;
+      padding: 50px 80px;
       box-sizing: border-box; }
-      .container .reg-box .right > div {
-        margin-bottom: 30px; }
       .container .reg-box .right .reg-title {
         font-size: 20px;
-        text-align: center; }
+        text-align: center;
+        margin-bottom: 20px; }
         .container .reg-box .right .reg-title h2 {
           font-weight: 400; }
       .container .reg-box .right .reg-input input[data-input] {
@@ -53,12 +52,18 @@
         background-color: whitesmoke;
         padding-left: 10px;
         border-radius: 10px;
-        margin-bottom: 15px; }
+        box-sizing: border-box; }
       .container .reg-box .right .reg-input .check {
         vertical-align: middle; }
       .container .reg-box .right .reg-input label {
         font-size: 12px;
         vertical-align: middle; }
+      .container .reg-box .right .reg-input span {
+        display: block;
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        color: #ea5800; }
       .container .reg-box .right .reg-btn {
         text-align: center; }
         .container .reg-box .right .reg-btn a {
@@ -67,7 +72,7 @@
           line-height: 45px;
           border-radius: 10px;
           background-color: #ea5800;
-          margin: 0 auto; }
+          margin: 15px auto; }
       .container .reg-box .right .reg-foot {
         text-align: right; }
 

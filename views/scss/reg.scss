@@ -14,7 +14,6 @@
     min-width: 700px;
     margin: auto;
     border-radius: 20px;
-    // 测试
     background-color: rgba(245,245,245,0.9);
     .left{
       float: left;
@@ -46,14 +45,12 @@
     .right {
       float: right;
       width: 65%;
-      padding: 60px 80px;
+      padding: 50px 80px;
       box-sizing: border-box;
-      & > div {
-        margin-bottom: 30px;
-      }
       .reg-title{
         font-size: 20px;
         text-align: center;
+        margin-bottom: 20px;
         h2{
           font-weight: 400;
         }
@@ -65,14 +62,21 @@
           background-color: rgb(245,245,245);
           padding-left: 10px;
           border-radius: 10px;
-          margin-bottom: 15px;
+          box-sizing: border-box;
         }
         .check {
           vertical-align:middle
         }
         label {
           font-size: 12px;
-          vertical-align:middle
+          vertical-align:middle;
+        }
+        span{
+          display: block;
+          font-size: 12px;
+          height: 20px;
+          line-height: 20px;
+          color: #ea5800;
         }
       }
       .reg-btn{
@@ -83,7 +87,7 @@
           line-height: 45px;
           border-radius: 10px;
           background-color: #ea5800;
-          margin: 0 auto;
+          margin: 15px auto;
         }
       }
       .reg-foot{

@@ -64,8 +64,24 @@ router.post('/login', (req,res,next)=>{
     }else if('code' == reqObj.model){
         // 让手机号和数据库中进行匹配，返回结果
         console.log(reqObj.phone);
-        // strSql = `SELECT*FROM user_info WHERE u_phone=?`;
-        // pool.query(strSql,[reqObj.phone]);
+        strSql = `SELECT*FROM user_info WHERE u_phone=?`;
+        pool.query(strSql,[reqObj.phone],(err,result)=>{
+            if(err){
+                next(err);
+            }
+            if(1 == result.length){
+                json = {
+                    'code': 200,
+                    'msg': '登录成功',
+                }
+            }else {
+                json = {
+                    'code': 201,
+                    'msg': '登录失败',
+                }
+            }
+            res.send(json);
+        });
     }
 
     // 通过sql语句的指定查询
@@ -74,7 +90,39 @@ router.post('/login', (req,res,next)=>{
     // 没有返回值的时候，返回失败
 
 });
+/*
+DATE: 2021/08/20;
+AUTHOR: ZD;
+ADDRESS: (POST, /reg);
+TABLE: '';
+EFFECT: 如果已存在相同数据，那需要返回对应的消息到前端
+RETURN: 返回查询结果true或者false，即登录是成功还是失败
 
+*/
+router.post('/reg', (req,res,next)=>{
+    var reqObj = req.body;
+    var strSql = 'INSERT INTO user_info (u_phone) VALUES (?)';
+    var json = {};
+    pool.query(strSql, [reqObj.phone], (err,result)=>{
+        if(err){
+            if(1062 == err.code){
+                json = {
+                    code:201,
+                    msg: '手机号已存在'
+                }
+            }
+            next(err);
+            res.status(500).send(json);
+            return;
+        }
+        json = {
+            code:200, 
+            msg:'注册成功'
+        }
+        res.send(json);
+    })
+
+})
 
 
 
