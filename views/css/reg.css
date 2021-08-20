@@ -2,13 +2,18 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  background-color: whitesmoke; }
+  background-image: url(../img/bg_banner.jpg);
+  background-size: cover; }
+  .container header {
+    position: absolute;
+    top: 20px;
+    left: 20px; }
   .container .reg-box {
-    width: 800px;
-    min-width: 800px;
+    width: 700px;
+    min-width: 700px;
     margin: auto;
     border-radius: 20px;
-    background-color: white; }
+    background-color: rgba(245, 245, 245, 0.9); }
     .container .reg-box .left {
       float: left;
       width: 35%;
@@ -33,7 +38,7 @@
     .container .reg-box .right {
       float: right;
       width: 65%;
-      padding: 60px;
+      padding: 60px 80px;
       box-sizing: border-box; }
       .container .reg-box .right > div {
         margin-bottom: 30px; }

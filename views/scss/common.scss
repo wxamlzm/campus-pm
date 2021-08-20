@@ -30,6 +30,7 @@ header {
     position: absolute;
     top: 0;
     width: 100%;
+    min-width: 800px;
     img {
       display: block;
       float: left;
@@ -37,6 +38,7 @@ header {
     }
     ul {
       float: right;
+      text-align: center;
       li {
         float: left;
         width: 150px;
@@ -46,9 +48,30 @@ header {
         }
         a {
           color: #FFF;
-          height: 80px;
+          display: block;
           line-height: 80px;
+          span{
+            box-sizing: border-box;
+            padding: 10px 20px;
+            border: 1px  #FFF solid;
+            border-radius: 10px;
+            transition: 0.3s;
+            &:hover{
+              background-color: #0052d9;
+              padding: 13px 23px;
+              border: none;
+            }
+          }
         }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  header{
+    nav {
+      img{
+        display: none;
       }
     }
   }
