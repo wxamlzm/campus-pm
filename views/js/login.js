@@ -121,8 +121,9 @@ aLogin.onclick = function(){
   // 判断目前的模式是哪一种
   let model = this.dataset.model
   if ('pwd' == model){
-
+    console.log(1);
     var objAjax = {
+      
       data: {
         uname: document.querySelector('[data-type=txt]').value,
         upwd: document.querySelector('[data-type=pwd]').value,
@@ -145,7 +146,6 @@ aLogin.onclick = function(){
     
     ajax(objAjax);
   }else if('code' == model){
-
     var objAjax = {
       data: {
         phone: document.querySelector('[data-type=phone]').value,

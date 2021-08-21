@@ -19,15 +19,10 @@ CREATE TABLE IF NOT EXISTS post_info(
 -- 后期这里的数据要通过另一个后台管理系统输入，这里是临时数据
 -- 数据格式也要重置
 INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
-INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
-INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
-INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
-INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
-INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
-INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
-INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
-INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
-INSERT INTO post_info VALUES (NULL, '软件开发', '技术类', '北京');
+INSERT INTO post_info VALUES (NULL, '销售岗位', '营销类', '杭州');
+INSERT INTO post_info VALUES (NULL, '人事专员', '职能类', '萧山');
+INSERT INTO post_info VALUES (NULL, '客服专员', '职能类', '杭州');
+
 
 /*
 DATE: 2021/08/14;
