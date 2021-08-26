@@ -36,7 +36,7 @@ RETURN: 返回查询结果true或者false，即登录是成功还是失败
 */
 router.post('/login', (req,res,next)=>{
     reqObj = req.body;
-    // console.log(reqObj);
+    console.log(reqObj);
     var strSql = '';
     var json = {};
     // 判断登录方式
@@ -52,6 +52,7 @@ router.post('/login', (req,res,next)=>{
                 json = {
                     'code': 200,
                     'msg': '登录成功',
+                    'uname':reqObj.uname
                 }
             }else {
                 json = {
